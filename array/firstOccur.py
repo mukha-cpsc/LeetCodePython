@@ -1,27 +1,21 @@
 class Solution:
-
-
     def strStr(haystack: str, needle: str) -> int:
-        if (len(needle) == 0):
-            return -1
+        haystack_pointer = 0
+        needle_pointer = 0
         if (len(needle) > len(haystack)):
             return -1
-        result = -1
-        j = 0
-        flag = 0
-        for i in range(len(haystack)):
-            if haystack[i] == needle[j]:
-                if flag == 0:
-                    result = i
-                    flag = 1
-                j += 1
+        if (len(needle) == 0):
+            return 0
+        while haystack_pointer < len(haystack):
+            if haystack[haystack_pointer] == needle[needle_pointer]:
+                haystack_pointer += 1
+                needle_pointer += 1
             else:
-                result = -1
-            if (j == len(needle)):
-                return result
-        return result
-
-
+                haystack_pointer = haystack_pointer - needle_pointer + 1
+                needle_pointer = 0
+            if needle_pointer == len(needle):
+                return haystack_pointer - needle_pointer
+        return -1
 haystack = "mississippi"
 needle = "issip"
 print(Solution.strStr(haystack, needle))
