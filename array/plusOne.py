@@ -12,7 +12,7 @@ class Solution:
             for i in range(n - 2, -1, -1):
                 if (digits[i] + remains != 10):
                     digits[i] += remains
-                    #remains = digits[i] // 10
+                    ##remains = digits[i] // 10
                 else:
                     digits[i] = 0
                     remains = 1
