@@ -12,7 +12,7 @@ class Solution:
             for i in range(n - 2, -1, -1):
                 if (digits[i] + remains != 10):
                     digits[i] += remains
-                    remains = digits[i] // 10
+                    #remains = digits[i] // 10
                 else:
                     digits[i] = 0
                     remains = 1
@@ -20,7 +20,7 @@ class Solution:
             digits.append(0)
             digits[0] = 1
         return digits
-    def allNines(digits):
+    def allNines(self, digits):
         for elem in digits:
             if elem != 9:
                 return False
